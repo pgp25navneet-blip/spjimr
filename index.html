@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <base target="_top">
+  <meta charset="UTF-8">
+  <!-- Ensures correct viewport scaling on mobile devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <title>SPJIMR Alumni Homecoming 2026 | Welcome Back Home</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,800;1,600&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            spjimr: {
+              navy: '#002B49',
+              gold: '#C59B27',
+              lightGold: '#E6C86E',
+              maroon: '#800000',
+              blue: '#005691',
+              darkBg: '#0F172A',
+              cardDark: '#1E293B'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            serif: ['"Playfair Display"', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .glass-effect {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .dark .glass-effect {
+      background: rgba(30, 41, 59, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .hero-gradient {
+      background: linear-gradient(135deg, rgba(0, 43, 73, 0.95) 0%, rgba(0, 86, 145, 0.85) 50%, rgba(128, 0, 0, 0.85) 100%);
+    }
+    .text-gradient-gold {
+      background: linear-gradient(135deg, #C59B27 0%, #F3E5AB 50%, #C59B27 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.05);
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #C59B27;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 dark:bg-spjimr-darkBg text-slate-800 dark:text-slate-100 font-sans transition-colors duration-300 min-h-screen flex flex-col justify-between custom-scrollbar">
+
+  <header class="sticky top-0 z-50 glass-effect border-b border-slate-200 dark:border-slate-800 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <!-- Logo Section -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-12 h-12 rounded-xl bg-spjimr-navy flex items-center justify-center font-serif text-2xl font-bold text-spjimr-gold border border-spjimr-gold/30 shadow-md group-hover:scale-105 transition-transform">
+          S
+        </div>
+        <div>
+          <span class="text-xl font-extrabold tracking-tight text-spjimr-navy dark:text-white block leading-none">SPJIMR</span>
+          <span class="text-xs font-semibold tracking-wider text-spjimr-gold uppercase">Alumni Homecoming 2026</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="#about" class="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-spjimr-gold dark:hover:text-spjimr-gold transition-colors">About</a>
+        <a href="#schedule" class="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-spjimr-gold dark:hover:text-spjimr-gold transition-colors">Schedule</a>
+        <a href="#register" class="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-spjimr-gold dark:hover:text-spjimr-gold transition-colors">RSVP & Registration</a>
+        <a href="#memories" class="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-spjimr-gold dark:hover:text-spjimr-gold transition-colors">Memory Wall</a>
+        <a href="#faq" class="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-spjimr-gold dark:hover:text-spjimr-gold transition-colors">FAQ</a>
+      </nav>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center gap-2 sm:gap-4">
+        <button id="themeToggle" class="p-2.5 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors text-slate-600 dark:text-slate-300" aria-label="Toggle Dark Mode">
+          <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
+          <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+        </button>
+        <a href="#register" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-spjimr-gold text-spjimr-navy font-bold text-sm hover:bg-yellow-400 transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5">
+          Join Homecoming
+        </a>
+        <!-- Mobile Menu Button -->
+        <button id="mobileMenuBtn" class="md:hidden p-2.5 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors focus:outline-none" aria-label="Toggle Navigation Menu">
+          <i data-lucide="menu" id="menuIcon" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Navigation -->
+    <div id="mobileMenu" class="hidden md:hidden border-b border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-spjimr-cardDark/95 backdrop-blur-lg px-6 py-5 space-y-4 shadow-xl">
+      <a href="#about" class="mobile-nav-link block text-base font-semibold text-slate-700 dark:text-slate-200 hover:text-spjimr-gold transition-colors">About</a>
+      <a href="#schedule" class="mobile-nav-link block text-base font-semibold text-slate-700 dark:text-slate-200 hover:text-spjimr-gold transition-colors">Schedule</a>
+      <a href="#register" class="mobile-nav-link block text-base font-semibold text-slate-700 dark:text-slate-200 hover:text-spjimr-gold transition-colors">RSVP & Registration</a>
+      <a href="#memories" class="mobile-nav-link block text-base font-semibold text-slate-700 dark:text-slate-200 hover:text-spjimr-gold transition-colors">Memory Wall</a>
+      <a href="#faq" class="mobile-nav-link block text-base font-semibold text-slate-700 dark:text-slate-200 hover:text-spjimr-gold transition-colors">FAQ</a>
+      <a href="#register" class="mobile-nav-link sm:hidden flex items-center justify-center w-full py-3 rounded-xl bg-spjimr-gold text-spjimr-navy font-bold text-sm shadow-md">
+        Join Homecoming
+      </a>
+    </div>
+  </header>
+
+  <main class="flex-grow">
+    <section class="relative min-h-[85vh] flex items-center justify-center hero-gradient text-white overflow-hidden py-16 sm:py-24">
+      <!-- Background Decorative Elements -->
+      <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#C59B27_1px,transparent_1px)] [background-size:24px_24px]"></div>
+      <div class="absolute -top-24 -left-24 w-72 sm:w-96 h-72 sm:h-96 bg-spjimr-gold/20 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-24 -right-24 w-72 sm:w-96 h-72 sm:h-96 bg-spjimr-maroon/40 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="relative max-w-5xl mx-auto px-4 text-center z-10">
+        <span class="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-spjimr-lightGold font-semibold text-xs sm:text-sm tracking-wider uppercase mb-6 shadow-inner">
+          <i data-lucide="sparkles" class="w-4 h-4"></i> Relive The Legacy • Rekindle Friendships
+        </span>
+        
+        <h1 class="text-3xl sm:text-6xl md:text-7xl font-serif font-extrabold tracking-tight mb-6 leading-tight">
+          Welcome Back Home, <br><span class="text-gradient-gold">SPJIMR Alumni</span>
+        </h1>
+        
+        <p class="text-base sm:text-xl text-slate-200 max-w-3xl mx-auto mb-8 sm:mb-10 font-light leading-relaxed px-2">
+          Reconnect with old batchmates, explore the revamped campus, mentor current students, and celebrate the enduring spirit of Courage and Heart.
+        </p>
+
+        <!-- Dynamic Live Countdown -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 max-w-2xl mx-auto mb-10 sm:mb-12 px-2">
+          <div class="p-3.5 sm:p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15">
+            <span id="cd-days" class="block text-2xl sm:text-4xl font-extrabold text-spjimr-gold">00</span>
+            <span class="text-[10px] sm:text-xs uppercase tracking-wider text-slate-300">Days</span>
+          </div>
+          <div class="p-3.5 sm:p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15">
+            <span id="cd-hours" class="block text-2xl sm:text-4xl font-extrabold text-spjimr-gold">00</span>
+            <span class="text-[10px] sm:text-xs uppercase tracking-wider text-slate-300">Hours</span>
+          </div>
+          <div class="p-3.5 sm:p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15">
+            <span id="cd-minutes" class="block text-2xl sm:text-4xl font-extrabold text-spjimr-gold">00</span>
+            <span class="text-[10px] sm:text-xs uppercase tracking-wider text-slate-300">Minutes</span>
+          </div>
+          <div class="p-3.5 sm:p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15">
+            <span id="cd-seconds" class="block text-2xl sm:text-4xl font-extrabold text-spjimr-gold">00</span>
+            <span class="text-[10px] sm:text-xs uppercase tracking-wider text-slate-300">Seconds</span>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-4">
+          <a href="#register" class="w-full sm:w-auto px-8 py-3.5 sm:py-4 rounded-full bg-spjimr-gold text-spjimr-navy font-bold text-base hover:bg-yellow-400 transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1 flex items-center justify-center gap-2">
+            Confirm Your Attendance <i data-lucide="arrow-right" class="w-5 h-5"></i>
+          </a>
+          <a href="#schedule" class="w-full sm:w-auto px-8 py-3.5 sm:py-4 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/30 font-semibold text-base transition-all flex items-center justify-center gap-2">
+            View Schedule
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-3xl sm:text-4xl font-serif font-bold text-spjimr-navy dark:text-white mb-4">Event Highlights</h2>
+        <p class="text-slate-600 dark:text-slate-400">A memorable weekend designed to bring back nostalgia, foster meaningful professional connections, and showcase SPJIMR's future.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="p-8 rounded-3xl bg-white dark:bg-spjimr-cardDark border border-slate-200 dark:border-slate-800 shadow-xl shadow-slate-100 dark:shadow-none hover:border-spjimr-gold transition-all duration-300 group">
+          <div class="w-14 h-14 rounded-2xl bg-amber-100 dark:bg-amber-900/30 text-spjimr-gold flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <i data-lucide="coffee" class="w-7 h-7"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-spjimr-navy dark:text-white">Batch Reunions & Tea</h3>
+          <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Catch up over chai at the iconic SPJIMR lake, reconnect with faculty members, and relive classroom banter with your batchmates.</p>
+        </div>
+
+        <div class="p-8 rounded-3xl bg-white dark:bg-spjimr-cardDark border border-slate-200 dark:border-slate-800 shadow-xl shadow-slate-100 dark:shadow-none hover:border-spjimr-gold transition-all duration-300 group">
+          <div class="w-14 h-14 rounded-2xl bg-blue-100 dark:bg-blue-900/30 text-spjimr-blue flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <i data-lucide="award" class="w-7 h-7"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-spjimr-navy dark:text-white">Distinguished Alumni Awards</h3>
+          <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">Honoring batchmates who have made exceptional contributions to industry, entrepreneurship, and social leadership.</p>
+        </div>
+
+        <div class="p-8 rounded-3xl bg-white dark:bg-spjimr-cardDark border border-slate-200 dark:border-slate-800 shadow-xl shadow-slate-100 dark:shadow-none hover:border-spjimr-gold transition-all duration-300 group">
+          <div class="w-14 h-14 rounded-2xl bg-red-100 dark:bg-red-900/30 text-spjimr-maroon flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+            <i data-lucide="music" class="w-7 h-7"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-spjimr-navy dark:text-white">Gala Dinner & Cultural Night</h3>
+          <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">An evening filled with music, performances by student clubs, fine dining, and networking under the stars.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="schedule" class="py-20 bg-slate-100 dark:bg-slate-900/50">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <h2 class="text-3xl sm:text-4xl font-serif font-bold text-spjimr-navy dark:text-white mb-4">Event Schedule</h2>
+          <p class="text-slate-600 dark:text-slate-400">Two power-packed days of nostalgia, networking, and celebration.</p>
+        </div>
+
+        <div class="space-y-6">
+          <!-- Timeline Item 1 -->
+          <div class="flex flex-col md:flex-row gap-6 p-6 rounded-2xl bg-white dark:bg-spjimr-cardDark border border-slate-200 dark:border-slate-800 shadow-sm">
+            <div class="md:w-48 shrink-0 flex items-center gap-3 text-spjimr-gold font-bold">
+              <i data-lucide="clock" class="w-5 h-5"></i> Day 1 • 09:00 AM
+            </div>
+            <div>
+              <h4 class="text-lg font-bold text-spjimr-navy dark:text-white mb-1">Campus Tour & Registration</h4>
+              <p class="text-sm text-slate-600 dark:text-slate-400">Welcome kit collection at SPJIMR Auditorium, followed by a guided tour of new campus infrastructure and centers of excellence.</p>
+            </div>
+          </div>
+
+          <!-- Timeline Item 2 -->
+          <div class="flex flex-col md:flex-row gap-6 p-6 rounded-2xl bg-white dark:bg-spjimr-cardDark border border-slate-200 dark:border-slate-800 shadow-sm">
+            <div class="md:w-48 shrink-0 flex items-center gap-3 text-spjimr-gold font-bold">
+              <i data-lucide="clock" class="w-5 h-5"></i> Day 1 • 02:00 PM
+            </div>
+            <div>
+              <h4 class="text-lg font-bold text-spjimr-navy dark:text-white mb-1">Dean's Keynote & Panel Discussion</h4>
+              <p class="text-sm text-slate-600 dark:text-slate-400">Insights into SPJIMR's global vision, innovation hubs, and an interactive Q&A session with alumni industry leaders.</p>
+            </div>
+          </div>
+
+          <!-- Timeline Item 3 -->
+          <div class="flex flex-col md:flex-row gap-6 p-6 rounded-2xl bg-white dark:bg-spjimr-cardDark border border-slate-200 dark:border-slate-800 shadow-sm">
+            <div class="md:w-48 shrink-0 flex items-center gap-3 text-spjimr-gold font-bold">
+              <i data-lucide="clock" class="w-5 h-5"></i> Day 1 • 07:00 PM
+            </div>
+            <div>
+              <h4 class="text-lg font-bold text-spjimr-navy dark:text-white mb-1">Grand Gala Dinner & Musical Evening</h4>
+              <p class="text-sm text-slate-600 dark:text-slate-400">An extraordinary night of nostalgia, live musical band performances, networking dinner, and awards.</p>
+            </div>
+          </div>
+
+          <!-- Timeline Item 4 -->
+          <div class="flex flex-col md:flex-row gap-6 p-6 rounded-2xl bg-white dark:bg-spjimr-cardDark border border-slate-200 dark:border-slate-800 shadow-sm">
+            <div class="md:w-48 shrink-0 flex items-center gap-3 text-spjimr-gold font-bold">
+              <i data-lucide="clock" class="w-5 h-5"></i> Day 2 • 10:00 AM
+            </div>
+            <div>
+              <h4 class="text-lg font-bold text-spjimr-navy dark:text-white mb-1">Alumni Mentorship & Farewell Brunch</h4>
+              <p class="text-sm text-slate-600 dark:text-slate-400">Speed mentoring session with current PGDM/PGPM cohorts followed by a relaxed lakeside Sunday brunch.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="register" class="py-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-white dark:bg-spjimr-cardDark rounded-3xl p-6 sm:p-12 border border-slate-200 dark:border-slate-800 shadow-2xl relative overflow-hidden">
+        <!-- Accent line top -->
+        <div class="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-spjimr-navy via-spjimr-gold to-spjimr-maroon"></div>
+
+        <div class="text-center mb-8 sm:mb-10">
+          <h2 class="text-2xl sm:text-3xl font-serif font-bold text-spjimr-navy dark:text-white mb-2">RSVP For Homecoming</h2>
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400">Please fill out your details below to confirm your presence.</p>
+        </div>
+
+        <form id="registrationForm" onsubmit="handleFormSubmit(event)" class="space-y-5 sm:space-y-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-2">Full Name *</label>
+              <input type="text" id="fullName" required placeholder="e.g. Rahul Sharma" class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-2 focus:ring-spjimr-gold outline-none transition-all text-base">
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-2">Email Address *</label>
+              <input type="email" id="email" required placeholder="rahul.sharma@example.com" class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-2 focus:ring-spjimr-gold outline-none transition-all text-base">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-2">Batch Year *</label>
+              <select id="batchYear" required class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-2 focus:ring-spjimr-gold outline-none transition-all text-base">
+                <option value="">Select Year</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-2">Program *</label>
+              <select id="program" required class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-2 focus:ring-spjimr-gold outline-none transition-all text-base">
+                <option value="">Select Program</option>
+                <option value="PGDM">PGDM</option>
+                <option value="PGPM">PGPM</option>
+                <option value="GMP">GMP</option>
+                <option value="FMB">FMB</option>
+                <option value="PGEMP">PGEMP</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-2">Attending Days *</label>
+              <select id="attendance" required class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-2 focus:ring-spjimr-gold outline-none transition-all text-base">
+                <option value="Both Days">Both Days (Full Event)</option>
+                <option value="Day 1 Only">Day 1 Only</option>
+                <option value="Day 2 Only">Day 2 Only</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-2">Current Designation & Organization</label>
+              <input type="text" id="organization" placeholder="e.g. Director, Google" class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-2 focus:ring-spjimr-gold outline-none transition-all text-base">
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-2">Accompanying Guests (+1s)</label>
+              <input type="number" id="guests" min="0" max="4" value="0" class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-2 focus:ring-spjimr-gold outline-none transition-all text-base">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-2">Dietary Preferences / Notes</label>
+            <textarea id="notes" rows="3" placeholder="Let us know if you have any special requirements..." class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-2 focus:ring-spjimr-gold outline-none transition-all text-base"></textarea>
+          </div>
+
+          <button type="submit" id="submitBtn" class="w-full py-4 rounded-xl bg-spjimr-navy dark:bg-spjimr-gold text-white dark:text-spjimr-navy font-bold text-base hover:opacity-90 transition-all shadow-lg flex items-center justify-center gap-2">
+            <span>Complete Registration</span>
+            <i data-lucide="check-circle" class="w-5 h-5"></i>
+          </button>
+        </form>
+
+        <div id="statusMessage" class="hidden mt-6 p-4 rounded-xl text-center text-sm font-semibold"></div>
+      </div>
+    </section>
+
+    <section id="memories" class="py-20 bg-slate-100 dark:bg-slate-900/50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <h2 class="text-3xl sm:text-4xl font-serif font-bold text-spjimr-navy dark:text-white mb-4">Memory Wall</h2>
+          <p class="text-slate-600 dark:text-slate-400">Voices and memories shared by alumni across generations.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="p-6 rounded-2xl bg-white dark:bg-spjimr-cardDark border border-slate-200 dark:border-slate-800 shadow-md">
+            <p class="italic text-slate-600 dark:text-slate-300 text-sm mb-6">"Walking near the SPJIMR lake during evening breaks is something I miss every single day. Can't wait to meet my PGDM 2012 folks!"</p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-spjimr-gold/20 text-spjimr-gold font-bold flex items-center justify-center">AS</div>
+              <div>
+                <h5 class="text-sm font-bold text-spjimr-navy dark:text-white">Ananya Sen</h5>
+                <span class="text-xs text-slate-500">PGDM Class of 2012</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-white dark:bg-spjimr-cardDark border border-slate-200 dark:border-slate-800 shadow-md">
+            <p class="italic text-slate-600 dark:text-slate-300 text-sm mb-6">"SPJIMR shaped not just my career but my life values. Proud to come back and interact with the vibrant young minds on campus."</p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-spjimr-blue/20 text-spjimr-blue font-bold flex items-center justify-center">RK</div>
+              <div>
+                <h5 class="text-sm font-bold text-spjimr-navy dark:text-white">Rajesh Kulkarni</h5>
+                <span class="text-xs text-slate-500">PGPM Class of 2008</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-white dark:bg-spjimr-cardDark border border-slate-200 dark:border-slate-800 shadow-md">
+            <p class="italic text-slate-600 dark:text-slate-300 text-sm mb-6">"Ten years felt like a blink! Super excited for the gala night and reuniting with the legendary faculty!"</p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-spjimr-maroon/20 text-spjimr-maroon font-bold flex items-center justify-center">NM</div>
+              <div>
+                <h5 class="text-sm font-bold text-spjimr-navy dark:text-white">Neha Mehta</h5>
+                <span class="text-xs text-slate-500">FMB Class of 2015</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="py-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-serif font-bold text-spjimr-navy dark:text-white mb-4">Frequently Asked Questions</h2>
+      </div>
+
+      <div class="space-y-4">
+        <details class="group p-6 rounded-2xl bg-white dark:bg-spjimr-cardDark border border-slate-200 dark:border-slate-800 cursor-pointer">
+          <summary class="font-bold text-lg text-spjimr-navy dark:text-white flex justify-between items-center">
+            Can I bring my family or spouse?
+            <i data-lucide="chevron-down" class="w-5 h-5 group-open:rotate-180 transition-transform"></i>
+          </summary>
+          <p class="mt-4 text-sm text-slate-600 dark:text-slate-400">Yes! Spouses and kids are welcome to join the event. Please specify the number of guests in the RSVP form so we can plan catering accordingly.</p>
+        </details>
+
+        <details class="group p-6 rounded-2xl bg-white dark:bg-spjimr-cardDark border border-slate-200 dark:border-slate-800 cursor-pointer">
+          <summary class="font-bold text-lg text-spjimr-navy dark:text-white flex justify-between items-center">
+            Is accommodation provided on campus?
+            <i data-lucide="chevron-down" class="w-5 h-5 group-open:rotate-180 transition-transform"></i>
+          </summary>
+          <p class="mt-4 text-sm text-slate-600 dark:text-slate-400">Limited executive rooms on campus are available on a first-come, first-served basis. Partner hotel discounts nearby will also be shared in your confirmation email.</p>
+        </details>
+
+        <details class="group p-6 rounded-2xl bg-white dark:bg-spjimr-cardDark border border-slate-200 dark:border-slate-800 cursor-pointer">
+          <summary class="font-bold text-lg text-spjimr-navy dark:text-white flex justify-between items-center">
+            What is the dress code for the event?
+            <i data-lucide="chevron-down" class="w-5 h-5 group-open:rotate-180 transition-transform"></i>
+          </summary>
+          <p class="mt-4 text-sm text-slate-600 dark:text-slate-400">Daytime sessions are Smart Casuals. The Gala Dinner on Saturday evening is Formal / Festive Ethnic Wear.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-spjimr-navy text-white border-t border-slate-800 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div>
+        <h3 class="font-serif font-bold text-xl text-spjimr-gold">SPJIMR Alumni Relations Cell</h3>
+        <p class="text-xs text-slate-400 mt-1">S.P. Jain Institute of Management & Research, Bhavan's Campus, Munshi Nagar, Andheri (West), Mumbai</p>
+      </div>
+      <div class="text-xs text-slate-400 text-center md:text-right">
+        <p>&copy; 2026 SPJIMR. All rights reserved.</p>
+        <p class="mt-1">Designed for SPJIMR Alumni Homecoming</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Dark Mode Toggle Logic
+    const themeToggleBtn = document.getElementById('themeToggle');
+    themeToggleBtn.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+    });
+
+    // Mobile Menu Toggle Logic & Smooth Closing
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Close mobile dropdown automatically when a navigation item is tapped
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // Populate Batch Years (1981 - 2025)
+    const batchSelect = document.getElementById('batchYear');
+    const currentYear = 2025;
+    for (let year = currentYear; year >= 1981; year--) {
+      const option = document.createElement('option');
+      option.value = year;
+      option.textContent = year;
+      batchSelect.appendChild(option);
+    }
+
+    // Countdown Timer Logic
+    function startCountdown() {
+      // Event date set to 30 days from now for demo
+      const eventDate = new Date();
+      eventDate.setDate(eventDate.getDate() + 30);
+
+      function update() {
+        const now = new Date().getTime();
+        const diff = eventDate.getTime() - now;
+
+        if (diff <= 0) return;
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        document.getElementById('cd-days').innerText = String(days).padStart(2, '0');
+        document.getElementById('cd-hours').innerText = String(hours).padStart(2, '0');
+        document.getElementById('cd-minutes').innerText = String(minutes).padStart(2, '0');
+        document.getElementById('cd-seconds').innerText = String(seconds).padStart(2, '0');
+      }
+
+      update();
+      setInterval(update, 1000);
+    }
+    startCountdown();
+
+    // Form Submission Handling
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const submitBtn = document.getElementById('submitBtn');
+      const statusMsg = document.getElementById('statusMessage');
+
+      const formData = {
+        fullName: document.getElementById('fullName').value,
+        email: document.getElementById('email').value,
+        batchYear: document.getElementById('batchYear').value,
+        program: document.getElementById('program').value,
+        attendance: document.getElementById('attendance').value,
+        organization: document.getElementById('organization').value,
+        guests: document.getElementById('guests').value,
+        notes: document.getElementById('notes').value
+      };
+
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<span>Registering...</span>';
+
+      // Check if running in Apps Script environment
+      if (typeof google !== 'undefined' && google.script && google.script.run) {
+        google.script.run
+          .withSuccessHandler(function(response) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = '<span>Complete Registration</span> <i data-lucide="check-circle" class="w-5 h-5"></i>';
+            lucide.createIcons();
+
+            statusMsg.classList.remove('hidden', 'bg-red-100', 'text-red-700');
+            statusMsg.classList.add('bg-emerald-100', 'text-emerald-800', 'dark:bg-emerald-900/40', 'dark:text-emerald-200');
+            statusMsg.innerText = "🎉 Success! Registration completed. We look forward to seeing you at SPJIMR!";
+            document.getElementById('registrationForm').reset();
+          })
+          .withFailureHandler(function(error) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = '<span>Try Again</span>';
+            statusMsg.classList.remove('hidden', 'bg-emerald-100', 'text-emerald-800');
+            statusMsg.classList.add('bg-red-100', 'text-red-700', 'dark:bg-red-900/40', 'dark:text-red-200');
+            statusMsg.innerText = "Error submitting registration. Please try again.";
+          })
+          .registerAlumni(formData);
+      } else {
+        // Fallback demo behavior for preview mode
+        setTimeout(() => {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = '<span>Complete Registration</span> <i data-lucide="check-circle" class="w-5 h-5"></i>';
+          lucide.createIcons();
+
+          statusMsg.classList.remove('hidden', 'bg-red-100', 'text-red-700');
+          statusMsg.classList.add('bg-emerald-100', 'text-emerald-800', 'dark:bg-emerald-900/40', 'dark:text-emerald-200');
+          statusMsg.innerText = "🎉 Registration recorded (Demo Mode)! Welcome back home to SPJIMR!";
+          document.getElementById('registrationForm').reset();
+        }, 1200);
+      }
+    }
+  </script>
+</body>
+</html>
